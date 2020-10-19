@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class lugaresturisticos extends Model
 {
-    public $table = "lugaresTuristicos";
+    public $table ="lugaresturisticos";
     public $timestamps = false;
     public $guarded = [];
 

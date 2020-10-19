@@ -30,43 +30,43 @@ class naturalezaController extends Controller
         $naturalezaVieja=request()->except('_token');
 
 
-        if($req->hasFile('foto1','foto2',"foto3","foto4")){
+        if($req->hasFile('foto1','foto2',"foto3")){
           
           $naturaleza=naturaleza::find($id);
 
-          $imagen="/storage/".$naturaleza->foto1;
-          $imagen2="/storage/".$naturaleza->foto2;
-          $imagen3="/storage/".$naturaleza->foto3;
-         
+          Storage::delete("public/upload/".$naturaleza->foto1);
 
-          $ruta=str_replace("\\", "/" ,public_path());
-          $ruta2=str_replace("\\", "/",public_path());
-          $ruta3=str_replace("\\", "/",public_path());
+          Storage::delete("public/upload/".$naturaleza->foto2);
 
-         
+          Storage::delete("public/upload/".$naturaleza->foto3);
 
-           if(file_exists($ruta.$imagen)){
-      
-             unlink($ruta.$imagen);
-             unlink($ruta2.$imagen2);
-             unlink($ruta3.$imagen3);
-           
-             $naturalezaVieja["foto1"]=$req->file("foto1")->store("uploads","public");
-             $naturalezaVieja["foto2"]=$req->file("foto2")->store("uploads","public" );
-             $naturalezaVieja["foto3"]=$req->file("foto3")->store("uploads","public");
+          
+          
+          $naturalezaVieja["foto1"]=$req->file("foto1")->store("upload","public");
+          
+          $naturalezaVieja["foto2"]=$req->file("foto2")->store("upload","public" );
 
-             $naturalezaEditada=naturaleza::where('id','=',$id)->update($naturalezaVieja);
+          $naturalezaVieja["foto3"]=$req->file("foto3")->store("upload","public");
 
-            return redirect("/naturaleza");
-              }else{
-                    $naturalezaVieja["foto1"]=$req->file("foto1")->store("uploads","public");
-                    $naturalezaVieja["foto2"]=$req->file("foto2")->store("uploads","public" );
-                    $naturalezaVieja["foto3"]=$req->file("foto3")->store("uploads","public");
 
-                    $naturalezaeditada=naturaleza::where('id','=',$id)->update($naturalezaVieja);
+          $nombreFoto1=basename($naturalezaVieja["foto1"]);
 
-                  return redirect("/naturaleza");
-                }
+          $nombreFoto2=basename($naturalezaVieja["foto2"]);
+
+          $nombreFoto3=basename($naturalezaVieja["foto3"]);
+
+
+          $naturalezaVieja["foto1"]=$nombreFoto1;
+
+          $naturalezaVieja["foto2"]=$nombreFoto2;
+
+          $naturalezaVieja["foto3"]=$nombreFoto3;
+
+
+
+          $naturalezaEditada=naturaleza::where('id','=',$id)->update($naturalezaVieja);
+
+          return redirect("/naturaleza");
       }
     }
       

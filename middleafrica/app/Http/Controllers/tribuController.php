@@ -32,44 +32,45 @@ class tribuController extends Controller
 
           if($req->hasFile("foto1","foto2","foto3")){
 
-           $tribus=tribu::find($id);
+            $tribus=tribu::find($id);
 
-           $imagen="/storage/".$tribus->foto1;
-           $imagen2="/storage/".$tribus->foto2;
-           $imagen3="/storage/".$tribus->foto3;
-
-            $ruta=str_replace("\\", "/" ,public_path());
-            $ruta2=str_replace("\\", "/",public_path());
-            $ruta3=str_replace("\\", "/",public_path());
-
-
-            if(file_exists($ruta.$imagen)){
-
-        
-              unlink($ruta.$imagen);
-              unlink($ruta2.$imagen2);
-              unlink($ruta3.$imagen3);
             
-              $tribuVieja["foto1"]=$req->file("foto1")->store("uploads","public");
-              $tribuVieja["foto2"]=$req->file("foto2")->store("uploads","public" );
-              $tribuVieja["foto3"]=$req->file("foto3")->store("uploads","public");
+            Storage::delete("public/upload/".$tribus->foto1);
 
-              $tribuEditada=tribu::where('id','=',$id)->update($tribuVieja);
+            Storage::delete("public/upload/".$tribus->foto2);
+
+            Storage::delete("public/upload/".$tribus->foto3);
+
+            
+            $tribuVieja["foto1"]=$req->file("foto1")->store("upload","public");
+              
+            $tribuVieja["foto2"]=$req->file("foto2")->store("upload","public" );
+              
+            $tribuVieja["foto3"]=$req->file("foto3")->store("upload","public");
+
+            $nombreFoto1=basename($tribuVieja["foto1"]);
+
+            $nombreFoto2=basename($tribuVieja["foto2"]);
+  
+            $nombreFoto3=basename($tribuVieja["foto3"]);
+  
+  
+            $tribuVieja["foto1"]=$nombreFoto1;
+  
+            $tribuVieja["foto2"]=$nombreFoto2;
+  
+            $tribuVieja["foto3"]=$nombreFoto3;
+
+            $tribuEditada=tribu::where('id','=',$id)->update($tribuVieja);
 
             return redirect("/tribus");
-            }else{
-              $tribuVieja["foto1"]=$req->file("foto1")->store("uploads","public");
-              $tribuVieja["foto2"]=$req->file("foto2")->store("uploads","public" );
-              $tribuVieja["foto3"]=$req->file("foto3")->store("uploads","public");
-
-              $tribuEditada=tribu::where('id','=',$id)->update($tribuVieja);
-
-              return redirect("/tribus");
+          
           }
+          
 
     }
 
-  }
+}
 
-}  
+  
 

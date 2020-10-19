@@ -1,7 +1,7 @@
 <body>
     <form action="/cargarFotosLugaresTuristicos/{{$lugares->id}}" method="post" enctype="multipart/form-data">
         @csrf
-        <label for="nombre"><h3>Nombre del Hospedajes</h3></label>
+        <label for="nombre"><h3>Nombre de lugares turisticos</h3></label>
         
         <p>{{$lugares->nombre}}</p>
 

@@ -13,11 +13,11 @@
             <p>{{$festival->descripcion}}</p>
         </li>
 
-        <li><img src="/storage/{{$festival->foto1}}" alt=""></li>
+        <li><img src="/storage/upload/{{$festival->foto1}}" alt=""></li>
         <li><p>{{$festival->descripcion_foto1}}</p></li>
-        <li><img src="/storage/{{$festival->foto2}}" alt=""></li>
+        <li><img src="/storage/upload/{{$festival->foto2}}" alt=""></li>
         <li><p>{{$festival->descripcion_foto2}}</p></li>
-        <li><img src="/storage/{{$festival->foto3}}" alt=""></li>
+        <li><img src="/storage/upload/{{$festival->foto3}}" alt=""></li>
         <li><p>{{$festival->descripcion_foto3}}</p></li>
         
         <p>nombre del pais</p>

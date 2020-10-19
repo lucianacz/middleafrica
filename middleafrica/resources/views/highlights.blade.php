@@ -9,10 +9,8 @@
             <p> {{$icono->nombre}}</P>
         </li>
 
-        <li><img src="/storage/{{$icono->icono1}}" alt=""></li>
-        <li><img src="/storage/{{$icono->icono2}}" alt=""></li>
-        <li><img src="/storage/{{$icono->icono3}}" alt=""></li>
-            
+        <li><img src="/storage/upload/{{$icono->icono}}" alt=""></li>
+
         <button><a href="/cargarIconos/{{$icono->id}}">cargar Fotos</a></button>
         @endforeach
     </ul>

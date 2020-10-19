@@ -37,41 +37,37 @@ class hospedajeController extends Controller
 
           $hospedajes=hospedaje::find($id);
 
-          $imagen="/storage/".$hospedajes->foto1;
-          $imagen2="/storage/".$hospedajes->foto2;
-          $imagen3="/storage/".$hospedajes->foto3;
-         
+          Storage::delete("public/upload/".$hospedajes->foto1);
 
-          $ruta=str_replace("\\", "/" ,public_path());
-          $ruta2=str_replace("\\", "/",public_path());
-          $ruta3=str_replace("\\", "/",public_path());
+          Storage::delete("public/upload/".$hospedajes->foto2);
 
+          Storage::delete("public/upload/".$hospedajes->foto3);
 
-           if(file_exists($ruta.$imagen)){
       
-             unlink($ruta.$imagen);
-             unlink($ruta2.$imagen2);
-             unlink($ruta3.$imagen3);
-           
-             $hospedajeViejo["foto1"]=$req->file("foto1")->store("uploads","public");
-             $hospedajeViejo["foto2"]=$req->file("foto2")->store("uploads","public" );
-             $hospedajeViejo["foto3"]=$req->file("foto3")->store("uploads","public");
+          $hospedajeViejo["foto1"]=$req->file("foto1")->store("upload","public");
+          $hospedajeViejo["foto2"]=$req->file("foto2")->store("upload","public" );
+          $hospedajeViejo["foto3"]=$req->file("foto3")->store("upload","public");
 
-             $hospedajeEditado=hospedaje::where('id','=',$id)->update($hospedajeViejo);
+          $nombreFoto1=basename($hospedajeViejo["foto1"]);
+
+          $nombreFoto2=basename($hospedajeViejo["foto2"]);
+
+          $nombreFoto3=basename($hospedajeViejo["foto3"]);
+
+          $hospedajeViejo["foto1"]=$nombreFoto1;
+
+          $hospedajeViejo["foto2"]=$nombreFoto2;
+
+          $hospedajeViejo["foto3"]=$nombreFoto3;
+        
+
+          $hospedajeEditado=hospedaje::where('id','=',$id)->update($hospedajeViejo);
 
             return redirect("/hospedaje");
-              }else{
-                    $hospedajeViejo["foto1"]=$req->file("foto1")->store("uploads","public");
-                    $hospedajeViejo["foto2"]=$req->file("foto2")->store("uploads","public" );
-                    $hospedajeViejo["foto3"]=$req->file("foto3")->store("uploads","public");
-
-                    $hospedajeEditado=hospedaje::where('id','=',$id)->update($hospedajeViejo);
-
-                  return redirect("/hospedaje");
-                }
+              }
           }
-      }
-
 }
+
+
 
 

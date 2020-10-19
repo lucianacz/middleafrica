@@ -36,39 +36,36 @@ class festivalesController extends Controller
 
           $festivales=festivales::find($id);
 
-          $imagen="/storage/".$festivales->foto1;
-          $imagen2="/storage/".$festivales->foto2;
-          $imagen3="/storage/".$festivales->foto3;
-         
+          Storage::delete("public/upload/".$festivales->foto1);
 
-          $ruta=str_replace("\\", "/" ,public_path());
-          $ruta2=str_replace("\\", "/",public_path());
-          $ruta3=str_replace("\\", "/",public_path());
+          Storage::delete("public/upload/".$festivales->foto2);
 
+          Storage::delete("public/upload/".$festivales->foto3);
 
-           if(file_exists($ruta.$imagen)){
-      
-             unlink($ruta.$imagen);
-             unlink($ruta2.$imagen2);
-             unlink($ruta3.$imagen3);
-           
-             $festivalesViejos["foto1"]=$req->file("foto1")->store("uploads","public");
-             $festivalesViejos["foto2"]=$req->file("foto2")->store("uploads","public" );
-             $festivalesViejos["foto3"]=$req->file("foto3")->store("uploads","public");
+          $festivalViejo["foto1"]=$req->file("foto1")->store("upload","public");
 
-             $festivalesEditados=festivales::where('id','=',$id)->update($festivalesViejos);
+          $festivalViejo["foto2"]=$req->file("foto2")->store("upload","public");
+
+          $festivalViejo["foto3"]=$req->file("foto3")->store("upload","public");
+
+          $nombreFoto1=basename($festivalViejo["foto1"]);
+
+          $nombreFoto2=basename($festivalViejo["foto2"]);
+
+          $nombreFoto3=basename($festivalViejo["foto3"]);
+
+          $festivalViejo["foto1"]=$nombreFoto1;
+
+          $festivalViejo["foto2"]=$nombreFoto2;
+
+          $festivalViejo["foto3"]=$nombreFoto3;
+
+        }
+             $festivalesEditados=festivales::where('id','=',$id)->update($festivalViejo);
 
             return redirect("/festivales");
-              }else{
-                    $festivalesViejos["foto1"]=$req->file("foto1")->store("uploads","public");
-                    $festivalesViejos["foto2"]=$req->file("foto2")->store("uploads","public" );
-                    $festivalesViejos["foto3"]=$req->file("foto3")->store("uploads","public");
-
-                    $festivalEditado=festivales::where('id','=',$id)->update($festivalesViejos);
-
-                    return redirect("/festivales");
-                }
+    
           }
-        }
-  }
+}
+  
 

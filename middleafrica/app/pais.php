@@ -19,7 +19,7 @@ class Pais extends Model
     }
 
     public function lugarTuristico(){
-        return $this->hasMany('App\hospedaje','paises_id');
+        return $this->hasMany('App\lugaresturisticos','paises_id');
     }
 
     public function tribus(){

@@ -1,7 +1,7 @@
 <body>
     <form action="/cargarFotosFestivales/{{$festival->id}}" method="post" enctype="multipart/form-data">
         @csrf
-        <label for="nombre"><h3>Nombre de la Tribu</h3></label>
+        <label for="nombre"><h3>Nombre del festival</h3></label>
         
         <p>{{$festival->nombre}}</p>
 

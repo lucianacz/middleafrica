@@ -9,9 +9,9 @@
             <p>{{$hospedaje->nombre}}</P>
         </li>
 
-        <li><img src="/storage/{{$hospedaje->foto1}}" alt=""></li>
-        <li><img src="/storage/{{$hospedaje->foto2}}" alt=""></li>
-        <li><img src="/storage/{{$hospedaje->foto3}}" alt=""></li>
+        <li><img src="/storage/upload/{{$hospedaje->foto1}}" alt=""></li>
+        <li><img src="/storage/upload/{{$hospedaje->foto2}}" alt=""></li>
+        <li><img src="/storage/upload/{{$hospedaje->foto3}}" alt=""></li>
             
         <button><a href="/cargarFotosHospedajes/{{$hospedaje->id}}">cargar Fotos</a></button>
         @endforeach
