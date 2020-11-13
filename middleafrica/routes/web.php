@@ -36,7 +36,7 @@ route::get("/equatorial_Guinea","paisesController@equatorialGuinea")->name("Equa
 
 route::get("/nigeria","paisesController@Nigeria")->name("Nigeria");
 
-route::get("sao_Tome", "paisesController@saoTome")->name("Sao_Tome");
+route::get("/sao_Tome", "paisesController@saoTome")->name("Sao_Tome");
 
 route::get("/south_Sudan", "paisesController@southSudan")->name("South_Sudan");
 
