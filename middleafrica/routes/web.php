@@ -18,27 +18,29 @@ Route::get('/', function () {
 
 route::get("/paises", "paisesController@listadoPaises")->name("paises");
 
-route::get("/angola", "paisesController@angola")->name("angola");
+route::get("/angola", "paisesController@angola")->name("Angola");
 
-route::get("/cameroon", "paisesController@cameroon")->name("cameroon");
+route::get("/cameroon", "paisesController@cameroon")->name("Cameroon");
 
 route::get("/central_African_Republic", "paisesController@centralAfricanRepublic")->name("central_African_Republic");
 
-route::get("/chad","paisesController@chad")->name("chad");
+route::get("/republic_of_Congo", "paisesController@republicCongo")->name("Republic_of_Congo");
 
-route::get("/congo", "paisesController@congo")->name("congo");
+route::get("/chad","paisesController@chad")->name("Chad");
 
-route::get("/gabon","paisesController@gabon")->name("gabon");
+route::get("/democratic_Republic_of_Congo", "paisesController@democraticRepublicCongo")->name("Democratic_Republic_of_Congo");
 
-route::get("/equatorial_Guinea","paisesController@equatorialGuinea")->name("equatorial_Guinea");
+route::get("/gabon","paisesController@gabon")->name("Gabon");
 
-route::get("/nigeria","paisesController@Nigeria")->name("nigeria");
+route::get("/equatorial_Guinea","paisesController@equatorialGuinea")->name("Equatorial_Guinea");
 
-route::get("sao_Tome", "paisesController@saoTome")->name("sao_Tome");
+route::get("/nigeria","paisesController@Nigeria")->name("Nigeria");
 
-route::get("/south_Sudan", "paisesController@southSudan")->name("south_Sudan");
+route::get("sao_Tome", "paisesController@saoTome")->name("Sao_Tome");
 
-route::get("/principe", "paisesController@principe")->name("principe");
+route::get("/south_Sudan", "paisesController@southSudan")->name("South_Sudan");
+
+route::get("/principe", "paisesController@principe")->name("Principe");
 
 
 

@@ -51,13 +51,24 @@ class paisesController extends Controller
       return view("/chad",$vac);
     }
 
-    public function congo(){
+    public function DemocraticRepublicCongo(){
       $paises = Pais::where("id",5)->get();
 
       $vac = compact("paises");
 
-      return view ("/congo",$vac);
+      return view ("/democratic_Republic_of_congo",$vac);
     }
+
+    public function RepublicCongo(){
+      $paises = Pais::where("id",8)->get();
+
+      $vac = compact("paises");
+
+      return view ("/republic_of_congo",$vac);
+    }
+
+
+
 
     public function gabon(){
       $paises = Pais::where("id",7)->get();
