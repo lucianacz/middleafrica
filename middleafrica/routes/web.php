@@ -18,6 +18,32 @@ Route::get('/', function () {
 
 route::get("/paises", "paisesController@listadoPaises")->name("paises");
 
+route::get("/angola", "paisesController@angola")->name("angola");
+
+route::get("/cameroon", "paisesController@cameroon")->name("cameroon");
+
+route::get("/central_African_Republic", "paisesController@centralAfricanRepublic")->name("central_African_Republic");
+
+route::get("/chad","paisesController@chad")->name("chad");
+
+route::get("/congo", "paisesController@congo")->name("congo");
+
+route::get("/gabon","paisesController@gabon")->name("gabon");
+
+route::get("/equatorial_Guinea","paisesController@equatorialGuinea")->name("equatorial_Guinea");
+
+route::get("/nigeria","paisesController@Nigeria")->name("nigeria");
+
+route::get("sao_Tome", "paisesController@saoTome")->name("sao_Tome");
+
+route::get("/south_Sudan", "paisesController@southSudan")->name("south_Sudan");
+
+route::get("/principe", "paisesController@principe")->name("principe");
+
+
+
+
+
 Route::group(['middleware' => 'auth'], function () {
 
     route::get("/festivales", "festivalesController@listadoFestivales");
