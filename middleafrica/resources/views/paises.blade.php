@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-   <h1>Presentacion Backend la base de Datos para Middle Africa</h1>
+   <h1>Presentacion  la base de Datos para Middle Africa</h1>
     <ul>
       @foreach ($paises as $pais)
       <li>
