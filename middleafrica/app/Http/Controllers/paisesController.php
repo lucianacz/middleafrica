@@ -119,6 +119,9 @@ class paisesController extends Controller
      return view("/principe", $vac);
    }
 
+   public function index (){
+    return view ('index');
+  }
 
 
 

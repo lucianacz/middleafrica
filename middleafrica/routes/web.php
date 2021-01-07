@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 
+
+
 route::get("/paises", "paisesController@listadoPaises")->name("paises");
 
 route::get("/angola", "paisesController@angola")->name("Angola");
@@ -91,3 +93,6 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes(['register' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'paisesController@index');
+
