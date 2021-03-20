@@ -11,44 +11,41 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
-
-route::get("/paises", "paisesController@listadoPaises")->name("paises");
-
-route::get("/angola", "paisesController@angola")->name("Angola");
-
-route::get("/cameroon", "paisesController@cameroon")->name("Cameroon");
-
-route::get("/central_African_Republic", "paisesController@centralAfricanRepublic")->name("central_African_Republic");
-
-route::get("/republic_of_Congo", "paisesController@republicCongo")->name("Republic_of_Congo");
-
-route::get("/chad","paisesController@chad")->name("Chad");
-
-route::get("/democratic_Republic_of_Congo", "paisesController@democraticRepublicCongo")->name("Democratic_Republic_of_Congo");
-
-route::get("/gabon","paisesController@gabon")->name("Gabon");
-
-route::get("/equatorial_Guinea","paisesController@equatorialGuinea")->name("Equatorial_Guinea");
-
-route::get("/nigeria","paisesController@Nigeria")->name("Nigeria");
-
-route::get("/sao_Tome", "paisesController@saoTome")->name("Sao_Tome");
-
-route::get("/south_Sudan", "paisesController@southSudan")->name("South_Sudan");
-
-route::get("/principe", "paisesController@principe")->name("Principe");
-
-
 
 
 
 Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    
+    route::get("/paises", "paisesController@listadoPaises")->name("paises");
+
+    route::get("/angola", "paisesController@angola")->name("Angola");
+
+    route::get("/cameroon", "paisesController@cameroon")->name("Cameroon");
+
+    route::get("/central_African_Republic", "paisesController@centralAfricanRepublic")->name("central_African_Republic");
+
+    route::get("/republic_of_Congo", "paisesController@republicCongo")->name("Republic_of_Congo");
+
+    route::get("/chad","paisesController@chad")->name("Chad");
+
+    route::get("/democratic_Republic_of_Congo", "paisesController@democraticRepublicCongo")->name("Democratic_Republic_of_Congo");
+
+    route::get("/gabon","paisesController@gabon")->name("Gabon");
+
+    route::get("/equatorial_Guinea","paisesController@equatorialGuinea")->name("Equatorial_Guinea");
+
+    route::get("/nigeria","paisesController@Nigeria")->name("Nigeria");
+
+    route::get("/sao_Tome", "paisesController@saoTome")->name("Sao_Tome");
+
+    route::get("/south_Sudan", "paisesController@southSudan")->name("South_Sudan");
+
+    route::get("/principe", "paisesController@principe")->name("Principe");
+
 
     route::get("/festivales", "festivalesController@listadoFestivales");
 
@@ -86,13 +83,17 @@ Route::group(['middleware' => 'auth'], function () {
 
     route::post("cargarIconos/{id}", "highlightController@cargarIconos");
 
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/', 'paisesController@index');
+
 });
 
 
 
-Auth::routes(['register' => true]);
+Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'paisesController@index');
+// Route::get('/', 'paisesController@index');
 

@@ -10,6 +10,7 @@ class festivalesController extends Controller
 {
     public function listadoFestivales(){
         $festivales=festivales::all();
+
         
             $vac=compact("festivales");
   

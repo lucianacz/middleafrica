@@ -29,6 +29,8 @@ class paisesController extends Controller
 
       $paises = Pais::where("id",2)->get();
 
+    
+
       $vac = compact("paises");
 
       return view("/cameroon",$vac);
