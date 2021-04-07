@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Mail;
 use App\Pais;
 
 class paisesController extends Controller
@@ -126,5 +126,25 @@ class paisesController extends Controller
   }
 
 
+    public function contacto(Request $req){
+      $data =["company" => $req["company"],
+                "fullname"=>$req["fullname"],
+                "phone" => $req["phone"],
+                "email" =>$req["email"],
+                "messages"=>$req["messages"],
+    ];
+
+        
+        Mail::send('/contacto',$data, function($msj) use($data){
+            $msj->from("info@middleafrica.com","middleafrica");
+            $msj->subject("contacto Middle Africa");
+            $msj->to("nicostecher1@gmail.com");
+        });
+        return redirect()->back();
+    }
 
 }
+
+
+
+

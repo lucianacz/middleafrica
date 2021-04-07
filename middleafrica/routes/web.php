@@ -87,6 +87,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', 'paisesController@index');
 
+    Route::post('/contacto', 'paisesController@contacto')->name('contacto');
+
 });
 
 

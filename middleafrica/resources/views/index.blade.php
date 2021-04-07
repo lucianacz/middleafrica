@@ -344,24 +344,25 @@
         </div>
 
         <div class="form">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <form action="/contacto" method="post" role="form" class="php-email-form">
+            @csrf
             <div class="row">
               <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="company" placeholder="Company" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="company" class="form-control" id="company" placeholder="Company" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validate"></div>
               </div>
               <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="fullname" placeholder="Full name" data-rule="email" data-msg="Please enter a valid email" />
+                <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Full name" data-rule="minlen:4" data-msg="Please a ful name"/>
                 <div class="validate"></div>
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="email" placeholder="Email" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="email" class="form-control" id="email" placeholder="Email" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validate"></div>
               </div>
               <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="phonenumber" placeholder="Phone Number" data-rule="email" data-msg="Please enter a valid email" />
+                <input type="text" class="form-control" name="phone" id="phonenumber" placeholder="Phone Number" data-rule="minlen:4" data-msg="Please enter a phone number" />
                 <div class="validate"></div>
               </div>
             </div>
