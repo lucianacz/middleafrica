@@ -1,5 +1,5 @@
-<h2>compania: {{$company}}</h2>
-<h2>Nombre completo: {{$fullname}}</h2>
-<h2>Email:{{$email}}</h2>
-<h2>telefono:{{$phone}}</h2>
-<h2>Mensaje: {{$messages}}</h2>
+<h4>compania: {{$company}}</h4>
+<h4>Nombre completo: {{$fullname}}</h4>
+<h4>Email:{{$email}}</h4>
+<h4>telefono:{{$phone}}</h4>
+<h4>Mensaje: {{$messages}}</h4>

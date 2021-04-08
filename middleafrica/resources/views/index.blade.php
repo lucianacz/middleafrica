@@ -367,12 +367,12 @@
               </div>
             </div>
             <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Your message/question here"></textarea>
+              <textarea class="form-control" name="mensaje" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Your message/question here"></textarea>
               <div class="validate"></div>
             </div>
             <div class="mb-3">
               <div class="loading">Loading</div>
-              <div class="error-message"></div>
+              {{-- <div class="error-message"></div> --}}
               <div class="sent-message">Your message has been sent. Thank you!</div>
             </div>
             <div class="text-center"><button type="submit">Send</button></div>

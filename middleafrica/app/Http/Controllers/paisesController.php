@@ -131,7 +131,7 @@ class paisesController extends Controller
                 "fullname"=>$req["fullname"],
                 "phone" => $req["phone"],
                 "email" =>$req["email"],
-                "messages"=>$req["messages"],
+                "messages"=>$req["mensaje"],
     ];
 
         
